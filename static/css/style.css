@@ -1,0 +1,56 @@
+#viewport {
+	/**
+ 	* Position relative so that canvas elements
+ 	* inside of it will be relative to the parent
+ 	*/
+    position: relative;
+    min-width: 1080px;
+    min-height: 720px;
+}
+ 
+#viewport canvas {
+	/**
+ 	* Position absolute provides canvases to be able
+ 	* to be layered on top of each other
+ 	* Be sure to remember a z-index!
+ 	*/
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+canvas {
+	/**
+ 	* Set transparent to let any other canvases render through
+ 	*/
+	background-color: transparent;
+}
+
+/**
+*
+*	Set sticky bottom
+*/
+.Site {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+  }
+  
+.Site-content {
+	flex: 1;
+  }
+
+body {
+	font-family: 'Roboto', sans-serif;
+
+}
+
+/**
+*
+*/
+
+#selected_card_index {
+	-webkit-box-shadow: 12px 14px 5px -3px rgba(0,0,0,0.41);
+	-moz-box-shadow: 12px 14px 5px -3px rgba(0,0,0,0.41);
+	box-shadow: 12px 14px 5px -3px rgba(0,0,0,0.41);
+}

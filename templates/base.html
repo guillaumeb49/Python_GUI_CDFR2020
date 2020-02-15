@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>C-Bot Robot 1</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='semantic/dist/semantic.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_cbot.png') }}" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='semantic/dist/semantic.min.js') }}"></script>
+
+</head>
+
+<body class="Site">
+
+  <header>
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+          <a href="#" class="header item">
+            <img class="logo" src="{{ url_for('static', filename='img/logo_cbot.png') }}">
+            C-Bot²
+          </a>
+          <a {% if request.url_rule.endpoint == "index" %} class="item active"{% endif %} href="/" class="item">Game!</a>
+          <a {% if request.url_rule.endpoint == "map" %} class="item active"{% endif %} href="/map/" class="item">Map</a>
+          <a {% if request.url_rule.endpoint == "tests" %} class="item active"{% endif %} href="/tests/" class="item">Tests</a>
+        </div>
+
+
+        <div class="right menu">
+          <a class="item" id="menu_connection_status">
+            <div id="connection_status_bubble" class="ui red empty circular horizontal label"></div>
+            Status
+          </a>
+          <a class="ui item" id="menu_debug">
+            <i class="question circle outline icon"></i> <b>Debug</b>
+          </a>
+        </div>
+    </div>
+  </header>
+
+  <p><br/><br/></p>
+
+  <main class="Site-content">
+
+    {% block content %}
+    {% endblock %}
+
+  </main>
+
+  <p><br/><br/><br/><br/></p>
+
+  <footer>
+    <div class="ui inverted vertical footer segment">
+      <div class="ui center aligned container">
+        <div class="ui stackable inverted divided grid">
+        </div>
+        <div class="ui inverted section divider"></div>
+        <img src="{{ url_for('static', filename='img/logo_cbot.png') }}" class="ui centered mini image">
+        <p><br/><b>C-BOT² 2020</b></p>
+      </div>
+    </div> 
+  </footer>     
+
+
+  <div id="modal_debug_menu" class="ui basic modal">
+    <div class="ui icon header">
+      <i class="bug icon"></i>
+      Debug
+    </div>
+    <div class="header">Header</div>
+    <div class="scrolling content">
+      <div id="debugTextArea"></div>
+
+    </div>
+    <div class="actions">
+      <div class="ui red basic cancel inverted button">
+        <i class="close icon"></i>
+        Close
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script src="{{ url_for('static', filename='js/ux_index.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/maps.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/WebSocket.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tools.js') }}"></script>
+
+<!--
+  If index page -> Draw the Map 
+-->
+{% if request.url_rule.endpoint == "index" %}
+  <script type="text/javascript">
+    DrawMap();
+    DrawInitialItems();
+    drawBoard();
+  </script>
+{% endif %}
+
+<!-- Always run these functions-->
+<script type="text/javascript">
+
+  // initialize the websockets
+  initWebSocket();
+
+  // if click on menu status check connection with Server
+  $("#menu_connection_status").on("click", function(){checkSocketUI();});
+</script>
+
+</html>
+
+
+

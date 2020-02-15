@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>C-Bot Robot 1</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='semantic/dist/semantic.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_cbot.png') }}" />
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='semantic/dist/semantic.min.js') }}"></script>
+</head>
+
+<body>
+
+
+<div class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+        <img class="logo" src="{{ url_for('static', filename='img/logo_cbot.png') }}">
+         C-Bot
+      </a>
+      <a href="#" class="item">Game!</a>
+      <a href="#" class="item">Tests</a>
+</div>
+  </div>
+
+  <p><br/></p>
+
+    <h1 class="ui header">Game!</h1>
+
+    <div class="ui ordered steps">
+      <div class="ui button completed step">
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+      <div class="ui button completed step">
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="ui button active step">
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description"><a href="templates/test.html">Verify order details</a></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="ui column centered grid">
+
+        <div id="viewport">
+            <canvas id="canvas_layer1" style="z-index: 0;"></canvas>
+            <canvas id="canvas_layer2" style="z-index: 2;"></canvas>  
+            <canvas id="canvas_layer3" style="z-index: 1;"></canvas>  
+        </div>
+   
+    </div>
+    
+    <div class="ui equal width grid">
+  <div class="column">
+    <div class="ui segment">
+      1
+    </div>
+  </div>
+  <div class="eight wide column">
+    <div class="ui segment">
+      2
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment">
+      3
+    </div>
+  </div>
+</div>
+
+
+    
+  </div>
+
+  <p><br/><br/><br/><br/></p>
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted divided grid">
+      </div>
+      <div class="ui inverted section divider"></div>
+      <img src="{{ url_for('static', filename='img/logo_cbot.png') }}" class="ui centered mini image">
+      
+    </div>
+  </div>
+
+  <h1>WebSocket Echo Client</h1>
+        <p>
+            <button onClick="initWebSocket();">Connect</button>
+            <button onClick="stopWebSocket();">Disconnect</button>
+            <button onClick="checkSocket();">State</button>
+        </p>
+        <p>
+            <textarea id="debugTextArea" style="width:400px;height:200px;"></textarea>
+        </p>
+        <p>
+            <input type="text" id="inputText" onkeydown="if(event.keyCode==13)sendMessage();"/>
+            <button onClick="sendMessage();">Send</button>
+        </p>        
+
+<script src="{{ url_for('static', filename='tools/maps.js') }}"></script>
+
+<script type="text/javascript">
+DrawMap();
+DrawInitialItems();
+drawBoard();</script>
+
+</body>
+</html>
+
+
+

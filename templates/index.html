@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="ui header">Game!</h1>
+
+    <div class="ui centered container">
+      <div class="ui fluid tablet stackable steps">
+
+        <div class="ui button active step">
+          <i class="cogs icon"></i>
+          <div class="content">
+            <div class="title">Configuration</div>
+            <div class="description">Choose color & strategy</div>
+          </div>
+        </div>
+
+        <div class="ui button step">
+          <i class="life ring icon"></i>
+          <div class="content">
+            <div class="title">Ready</div>
+            <div class="description">Waiting for tirette</div>
+          </div>
+        </div>
+
+        <div class="ui button step">
+          <i class="paper plane icon"></i>
+          <div class="content">
+            <div class="title">Go!</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="index_configuration_container" class="ui centered container" >
+      
+      <p><br/><br/>Choose your color:</p>
+      <div class="ui flex container" >
+        <div class="ui huge buttons fluid">
+          <button id="index_btn_color_yellow" class="ui yellow button">Yellow</button>
+          <div class="or"></div>
+          <button id="index_btn_color_blue" class="ui blue button">Blue</button>
+        </div>
+      </div>
+
+      <p><br/><br/>Choose your strategy:</p>
+
+      <div class="ui centered link cards">
+        <div class="card" id="index_homologation_card">
+          <div class="image">
+            <img src="{{ url_for('static', filename='img/homologation_logo.png') }}">
+          </div>
+          <div class="content">
+            <div class="header">Homologation</div>
+            
+            <div class="description">
+              Homologation's strategy: <br />
+              <ul>
+                <li>Robot 1: Lift up the windsocks</li>
+                <li>Robot 2: Turn on the lighthouse</li>
+              </ul>
+            </div>
+          </div>
+          <div class="extra content">
+            <span class="right floated">
+              <i id= "index_homologation_selected" class="check circle green icon"></i>
+            </span>
+            <span>
+              <i class="anchor icon"></i>
+              ~30 PTS
+            </span>
+          </div>
+        </div>
+        <div class="card" id="index_strategy1_card">
+          <div class="image">
+            <img src="{{ url_for('static', filename='img/strategy_1_logo.png') }}">
+          </div>
+          <div class="content">
+            <div class="header">Strategy 1</div>
+            
+            <div class="description">
+              
+              <ul>
+                <li>Robot 1:</li>
+                <li>Robot 2:</li>
+              </ul>
+            </div>
+          </div>
+          <div class="extra content">
+            <span class="right floated">
+              <i id= "index_strategy1_selected" class="check circle green icon"></i>
+            </span>
+            <span>
+              <i class="anchor icon"></i>
+              ~0 PTS
+            </span>
+          </div>
+        </div>
+        <div class="card" id="index_strategy2_card">
+          <div class="image">
+            <img src="{{ url_for('static', filename='img/strategy_2_logo.png') }}">
+          </div>
+          <div class="content">
+            <div class="header">Strategy 2</div>
+            
+            <div class="description">
+              
+              <ul>
+                <li>Robot 1:</li>
+                <li>Robot 2:</li>
+              </ul>
+            </div>
+          </div>
+          <div class="extra content">
+            <span class="right floated">
+              <i id= "index_strategy2_selected" class="check circle green icon"></i>
+            </span>
+            <span>
+              <i class="anchor icon"></i>
+              ~0 PTS
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <p><br/><br/>Go to Initial Position:</p>
+
+      <div class="ui centered container center aligned" >
+        <button id="index_goToInitialPos" class="ui right labeled icon huge grey button ">
+          <i class="flag checkered icon"></i>
+          Go to Initial Position
+        </button>
+  
+      </div>
+      
+      <br/><br/>
+      <div class="ui active centered inline text loader">X: <span style="padding-right: 35px">0</span> Y: <span style="padding-right: 35px">0</span> Theta: <span >0</span></div>
+
+      <br/><br/><br/><br/>
+
+      <div class="ui centered container center aligned" >
+        <button class="ui right labeled icon huge green button ">
+          <i class="arrow right checkered icon"></i>
+          Wait for the tirette
+        </button>
+  
+      </div>
+
+
+    </div>
+
+    <div id="index_ready_container" class="ui centered container" >
+      <p><br/><br/>Waiting for the tirette</p>
+
+    </div>
+
+    <div id="index_game_container" class="ui column centered grid">
+
+        <div id="viewport">
+            <canvas id="canvas_layer1_index" style="z-index: 0;"></canvas>
+            <canvas id="canvas_layer2_index" style="z-index: 2;"></canvas>  
+            <canvas id="canvas_layer3_index" style="z-index: 1;"></canvas>  
+        </div>
+
+    </div>
+
+    <br/><br/>
+        <div class="ui column centered grid">
+          X: <span id="x_on_map_index" style="padding-right: 35px">0</span> Y: <span id="y_on_map_index" style="padding-right: 35px">0</span></div>
+  
+  
+  <!--
+    <div class="ui equal width grid">
+      <div class="column">
+        <div class="ui segment">
+        1
+        </div>
+    </div>
+    <div class="twelve wide column">
+      <div class="ui segment">
+        2
+      </div>
+    </div>
+  </div>
+
+-->
+
+
+{% endblock %}
+
+
+

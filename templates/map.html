@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="ui header">Map</h1>
+
+    <div class="ui column centered grid">
+
+        <div id="viewport_map">
+            <canvas id="canvas_layer1" style="z-index: 0;"></canvas>
+            <canvas id="canvas_layer2" style="z-index: 2;"></canvas>  
+            <canvas id="canvas_layer3" style="z-index: 1;"></canvas>  
+        </div>
+   
+    </div>
+    
+
+
+
+<script type="text/javascript">
+DrawMap();
+DrawInitialItems();
+drawBoard();</script>
+
+{% endblock %}
+
+
+

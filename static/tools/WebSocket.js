@@ -52,7 +52,16 @@ function initWebSocket() {
         };
         websocket.onmessage = function (evt) {
             console.log( "Message received :", evt.data );
-            debug( evt.data );
+            debug(evt.data);
+            var data_received = JSON.parse(evt.data)
+            if(data_received["cmd"] == "getInfo")
+            {
+                robot.setDistances(data_received["answer"]);
+            }
+
+            console.log(robot.getDistances());
+
+            
         };
         websocket.onerror = function (evt) {
             debug('ERROR: ' + evt.data);

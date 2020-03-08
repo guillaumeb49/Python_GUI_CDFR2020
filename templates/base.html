@@ -94,6 +94,7 @@
 
 
 </body>
+<script src="{{ url_for('static', filename='js/Robot_Class.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ux_index.js') }}"></script>
 <script src="{{ url_for('static', filename='tools/maps.js') }}"></script>
 <script src="{{ url_for('static', filename='tools/WebSocket.js') }}"></script>
@@ -110,6 +111,9 @@
   </script>
 {% endif %}
 
+{% if request.url_rule.endpoint == "tests" %}
+  <script src="{{ url_for('static', filename='js/ux_tests.js') }}"></script>
+{% endif %}
 <!-- Always run these functions-->
 <script type="text/javascript">
 

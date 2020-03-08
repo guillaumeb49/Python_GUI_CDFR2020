@@ -56,13 +56,15 @@
                     Value of VL53l01X
                   </div>
                   <div class="description">
-                    STM32 <br/>
-                    WebSockets
+                    Sensor 1: <b><span id="distance_cm_sensor1">0</span></b> cm<br/>
+                    Sensor 2: <b><span id="distance_cm_sensor2">0</span></b> cm<br/>
+                    Sensor 3: <b><span id="distance_cm_sensor3">0</span></b> cm<br/>
+                    Sensor 4: <b><span id="distance_cm_sensor4">0</span></b> cm<br/>
                   </div>
                 </div>
                 <div class="extra content">
                   <i class="check icon"></i>
-                  121 Votes
+                  
                 </div>
               </div>
 
@@ -76,8 +78,10 @@
                     ServoMotors position
                   </div>
                   <div class="description">
-                    STM32 <br/>
-                    WebSockets
+                    Servo 1: <b><span id="servo_1">0</span></b> °<br/>
+                    Servo 2: <b><span id="servo_2">0</span></b> °<br/>
+                    Servo 3: <b><span id="servo_3">0</span></b> °<br/>
+                    Servo 4: <b><span id="servo_4">0</span></b> °<br/>
                   </div>
                 </div>
                 <div class="extra content">
@@ -96,8 +100,46 @@
                     LED STM32                    
                   </div>
                   <div class="description">
-                    STM32 <br/>
-                    WebSockets
+                    LED 1: <b><span id="LED_1">ON</span></b><br/>
+                    LED 2: <b><span id="LED_2">ON</span></b><br/>
+                    LED 3: <b><span id="LED_3">ON</span></b><br/>
+                    <hr>
+                    LED 4: <b><span id="LED_4">ON</span></b><br/>
+                    LED 5: <b><span id="LED_5">ON</span></b><br/>
+                    LED 6: <b><span id="LED_6">ON</span></b><br/>
+                    LED 7: <b><span id="LED_7">ON</span></b><br/>
+                    LED 8: <b><span id="LED_8">ON</span></b><br/>
+                    
+                  </div>
+                </div>
+                <div class="extra content">
+                  <i class="check icon"></i>
+                  121 Votes
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="content">
+                    <i class="right floated mini ui big square outline icon"></i>
+                  <div class="header">
+                    Inputs
+                  </div>
+                  <div class="meta">
+                    Sensors & Buttons                    
+                  </div>
+                  <div class="description">
+                    Tirette: <b><span id="tirette">ON</span></b><br/>
+                    <hr>
+                    IO/A 1: <b><span id="IOA_1">ON</span></b><br/>
+                    IO/A 2: <b><span id="IOA_2">ON</span></b><br/>
+                    IO/A 3: <b><span id="IOA_3">ON</span></b><br/>
+                    
+                    <hr>
+                    IO/B 1: <b><span id="IOB_1">ON</span></b><br/>
+                    IO/B 2: <b><span id="IOB_2">ON</span></b><br/>
+                    IO/B 3: <b><span id="IOB_3">ON</span></b><br/>
+                    
+                    
                   </div>
                 </div>
                 <div class="extra content">
@@ -128,6 +170,16 @@
           </div>
    
     </div>
+
+    <div id="index_game_container" class="ui column centered grid">
+
+      <div id="viewport">
+          <canvas id="canvas_layer1_index" style="z-index: 0;"></canvas>
+          <canvas id="canvas_layer2_index" style="z-index: 2;"></canvas>  
+          <canvas id="canvas_layer3_index" style="z-index: 1;"></canvas>  
+      </div>
+
+  </div>
     
 
 {% endblock %}

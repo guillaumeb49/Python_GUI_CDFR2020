@@ -148,38 +148,16 @@
                 </div>
               </div>
 
-              <div class="card">
-                <div class="content">
-                    <i class="right floated mini ui big file video outline icon"></i>
-                  <div class="header">
-                    Camera
-                  </div>
-                  <div class="meta">
-                    Live OpenCV output stream                    
-                  </div>
-                  <div class="description">
-                    
-                  </div>
-                </div>
-                <div class="ui bottom attached button">
-                    <i class="add icon"></i>
-                    Open Video Stream
-                  </div>
-              </div>
-
           </div>
    
     </div>
 
-    <div id="index_game_container" class="ui column centered grid">
+    <div style="margin:auto;margin-top:25px; text-align: center">
+      <img src="{{ url_for('video_feed') }}">
+    </div>
+    
 
-      <div id="viewport">
-          <canvas id="canvas_layer1_index" style="z-index: 0;"></canvas>
-          <canvas id="canvas_layer2_index" style="z-index: 2;"></canvas>  
-          <canvas id="canvas_layer3_index" style="z-index: 1;"></canvas>  
-      </div>
-
-  </div>
+    
     
 
 {% endblock %}

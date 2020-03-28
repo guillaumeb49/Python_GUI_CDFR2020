@@ -34,7 +34,7 @@ function sendMessage(cmd, param1,param2,param3) {
     }
 }
 
-var wsUri = "ws://localhost:1234";
+var wsUri = "ws://raspberrypi.local:1234";
 var websocket = null;
 
 function initWebSocket() {

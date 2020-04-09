@@ -34,7 +34,7 @@ function sendMessage(cmd, param1,param2,param3) {
     }
 }
 
-var wsUri = "ws://raspberrypi.local:1234";
+var wsUri = "ws://robot.local:1234";
 var websocket = null;
 
 function initWebSocket() {
@@ -105,6 +105,8 @@ function checkSocket() {
     } else {
         debug("WebSocket is null");
         stateStr = "NULL"
+        initWebSocket();
+        console.log("WebSocket is null we re-init it")
     }
     return stateStr;
 }

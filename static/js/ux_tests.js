@@ -30,4 +30,26 @@ window.setInterval(function(){
 
 }, 250);
 
+$("#robot_up").on("mousedown", function(){
+  robot.MoveFoward();
+}).on('mouseup mouseleave', function(){
+  robot.MoveStop();
+});
 
+$("#robot_down").on("mousedown", function(){
+  robot.MoveBackward();
+}).on('mouseup mouseleave', function(){
+  robot.MoveStop();
+});
+
+$("#robot_left").on("mousedown", function(){
+  robot.MoveLeft();
+}).on('mouseup mouseleave', function(){
+  robot.MoveStop();
+});
+
+$("#robot_right").on("mousedown", function(){
+  robot.MoveRight();
+}).on('mouseup mouseleave', function(){
+  robot.MoveStop();
+});

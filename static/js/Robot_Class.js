@@ -34,6 +34,31 @@ class Robot{
     this.distances = new_distances;
   }
 
+  MoveFoward()
+  {
+    sendMessage("forward");
+  }
+
+  MoveBackward()
+  {
+    sendMessage("backward");
+  }
+
+  MoveLeft()
+  {
+    sendMessage("left");
+  }
+
+  MoveRight()
+  {
+    sendMessage("right");
+  }
+
+  MoveStop()
+  {
+    sendMessage("stop");
+  }
+
   getDistances()
   {
     return this.distances;

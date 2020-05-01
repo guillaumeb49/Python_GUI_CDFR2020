@@ -63,12 +63,49 @@ class Robot{
   {
     return this.distances;
   }
+
+  getPosition()
+  {
+    return this.current_position;
+  }
+
+  getVecteurDeplacement()
+  {
+    return this.vecteurDeplacement;
+  }
+
+  getNext_position()
+  {
+    return this.next_position;
+  }
   
+  getAsservissement_status()
+  {
+    return this.asservissement_status;
+  }
+
+  getReady_to_start()
+  {
+    return this.ready_to_start;
+  }
+
+  getTirette_status()
+  {
+    return this.tirette_status;
+  }
+
+  getLeds()
+  {
+    return this.leds;
+  }
+
+  getServos_position()
+  {
+    return this.servos_position;
+  }
+
+
 }
 
-robot = new Robot();
 
-// Every 500ms ask current status of Robot
-window.setInterval(function(){
-  sendMessage("getInfo");
-}, 500);
+

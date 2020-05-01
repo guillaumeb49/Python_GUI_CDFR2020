@@ -5,6 +5,44 @@
  * @author Guillaume B.
  */
 
+ var socket = null;
+ var robot = new Robot();
+
+$(document).ready(function(){
+    socket = io.connect('http://' + document.domain + ':' + location.port);
+    
+    socket.on( 'connect', function() {
+        socket.emit( 'connected', {
+          data: 'User Connected'
+        } )
+        
+      } )
+
+      // Every 500ms ask current status of Robot
+    window.setInterval(function(){
+        if(socket != null)
+        {
+            //if soketIO is active
+        socket.emit( 'my event', {cmd: 'getInfo'} )
+        
+        }
+    }, 250);
+
+      socket.on( 'my response', function( msg ) {
+        console.log( msg )
+            // If response if answering a getInfo request
+            if(msg.cmd == "getInfo")
+            {
+                // Update the robotUI
+                robot.setInfo(msg.current_position, msg.vecteurDeplacement,msg.next_position,msg.asservissement_status,msg.ready_to_start,msg.distances,msg.tirette_status, msg.leds, msg.servos_position)
+            }    
+    
+    })
+    
+});
+
+
+
 var id_cmd = 0;
 
 function debug(message) {
@@ -44,7 +82,20 @@ function initWebSocket() {
         if ( websocket && websocket.readyState == 1 )
             websocket.close();
         websocket = new WebSocket( wsUri );
-        websocket.onopen = function (evt) {
+        websocket.onopen = function (evt) {$(document).ready(function(){
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+    socket.on('my response', function(msg) {
+        $('#log').append('<p>Received: ' + msg.data + '</p>');
+    });
+    $('form#emit').submit(function(event) {
+        socket.emit('my event', {data: $('#emit_data').val()});
+        return false;
+    });
+    $('form#broadcast').submit(function(event) {
+        socket.emit('my broadcast event', {data: $('#broadcast_data').val()});
+        return false;
+    });
+});
             debug("CONNECTED");
         };
         websocket.onclose = function (evt) {
